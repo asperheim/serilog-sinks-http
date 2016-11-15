@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using Moq;
 using Serilog.Sinks.Http.Tests.Support;
+using Serilog.Sinks.Logzio;
 using Xunit;
 
 namespace Serilog.Sinks.Http.Tests.Sinks.Http

@@ -43,7 +43,7 @@ namespace Serilog
         /// <see cref="LevelAlias.Minimum"/>.
         /// </param>
         /// <returns>Logger configuration, allowing configuration to continue.</returns>
-        public static LoggerConfiguration Http(
+        public static LoggerConfiguration Logzio(
             this LoggerSinkConfiguration sinkConfiguration,
             string requestUri,
             int? batchPostingLimit = null,

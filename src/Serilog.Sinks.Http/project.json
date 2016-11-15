@@ -1,13 +1,14 @@
 {
     "version": "1.0.0-*",
-    "description": "Serilog event sink that sends HTTP POST requests over the network.",
+    "description": "Serilog event sink that sends logs to Logz.io.",
     "authors": [
-        "Mattias Kindborg"
+      "Mattias Kindborg",
+      "Anders Asperheim"
     ],
     "packOptions": {
         "tags": [
             "serilog",
-            "http"
+            "logzio"
         ],
         "projectUrl": "http://serilog.net",
         "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
