@@ -15,7 +15,6 @@
 using System;
 using Serilog.Configuration;
 using Serilog.Events;
-using Serilog.Sinks.Http;
 using Serilog.Sinks.Logzio;
 
 namespace Serilog
@@ -32,11 +31,11 @@ namespace Serilog
         /// <param name="requestUri">The URI the request is sent to.</param>
         /// <param name="batchPostingLimit">
         /// The maximum number of events to post in a single batch. The default is
-        /// <see cref="HttpSink.DefaultBatchPostingLimit"/>.
+        /// <see cref="LogzioSink.DefaultBatchPostingLimit"/>.
         /// </param>
         /// <param name="period">
         /// The time to wait between checking for event batches. The default is
-        /// <see cref="HttpSink.DefaultPeriod"/>.
+        /// <see cref="LogzioSink.DefaultPeriod"/>.
         /// </param>
         /// <param name="formatProvider">Supplies culture-specific formatting information, or null.</param>
         /// <param name="restrictedToMinimumLevel">
@@ -56,11 +55,11 @@ namespace Serilog
                 throw new ArgumentNullException(nameof(sinkConfiguration));
 
             var client = new HttpClientWrapper();
-            var sink = new HttpSink(
+            var sink = new LogzioSink(
                 client,
                 requestUri,
-                batchPostingLimit ?? HttpSink.DefaultBatchPostingLimit,
-                period ?? HttpSink.DefaultPeriod,
+                batchPostingLimit ?? LogzioSink.DefaultBatchPostingLimit,
+                period ?? LogzioSink.DefaultPeriod,
                 formatProvider);
 
             return sinkConfiguration.Sink(sink, restrictedToMinimumLevel);
