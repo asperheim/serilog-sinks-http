@@ -1,24 +1,26 @@
 ﻿using System.Net.Http;
 using Moq;
 using Xunit;
+using Serilog.Sinks.Logzio.Tests.Support;
+using Serilog.Sinks.Logzio;
 
 namespace Serilog.Sinks.Http.Tests.Sinks.Http
 {
     public class HttpLogzioTest
     {
         private readonly Mock<IHttpClient> client;
-        private readonly string requestUri;
+        private readonly string autkey;
         private readonly LogzioSink sink;
 
         public HttpLogzioTest()
         {
             client = new Mock<IHttpClient>();
-            requestUri = "www.mylogs.com";
-            sink = new HttpSink(
+            autkey = "Key";
+            sink = new LogzioSink(
                 client.Object,
-                requestUri,
-                HttpSink.DefaultBatchPostingLimit,
-                HttpSink.DefaultPeriod,
+                autkey,
+                LogzioSink.DefaultBatchPostingLimit,
+                LogzioSink.DefaultPeriod,
                 null);
         }
 
@@ -31,7 +33,7 @@ namespace Serilog.Sinks.Http.Tests.Sinks.Http
             // Assert
             client.Verify(
                 mock => mock.PostAsync(
-                    requestUri,
+                    "http://www.logz.io?token=" + autkey,
                     It.IsAny<HttpContent>()),
                 Times.Once);
         }
