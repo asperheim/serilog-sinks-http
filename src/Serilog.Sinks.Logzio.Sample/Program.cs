@@ -1,6 +1,4 @@
 ﻿
-using System.Diagnostics;
-
 namespace Serilog.Sinks.Logzio.Sample
 {
     public class Program
@@ -10,14 +8,12 @@ namespace Serilog.Sinks.Logzio.Sample
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
                 .WriteTo.LiterateConsole()
-                .WriteTo.Logzio("http://listener.logz.io:8070/?token=zXqxXdfelIrNmynmdiKncZJXgvVERyUv",1)
+                .WriteTo.Logzio("<YourKey>", 1)
                 .CreateLogger();
 
             while (true)
             {
                 System.Threading.Thread.Sleep(5000);
-                Log.Verbose("Dette er veldig buggy altså!");
-                Debug.WriteLine("Nisselue");
                 Log.Warning("Warning fra logz.io sink");
             }
 

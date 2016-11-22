@@ -28,7 +28,7 @@ namespace Serilog
         /// Adds a sink that sends log events using HTTP POST over the network.
         /// </summary>
         /// <param name="sinkConfiguration">The logger configuration.</param>
-        /// <param name="requestUri">The URI the request is sent to.</param>
+        /// <param name="authToken">The token for your logzio account.</param>
         /// <param name="batchPostingLimit">
         /// The maximum number of events to post in a single batch. The default is
         /// <see cref="LogzioSink.DefaultBatchPostingLimit"/>.
@@ -45,7 +45,7 @@ namespace Serilog
         /// <returns>Logger configuration, allowing configuration to continue.</returns>
         public static LoggerConfiguration Logzio(
             this LoggerSinkConfiguration sinkConfiguration,
-            string requestUri,
+            string authToken,
             int? batchPostingLimit = null,
             TimeSpan? period = null,
             IFormatProvider formatProvider = null,
@@ -57,7 +57,7 @@ namespace Serilog
             var client = new HttpClientWrapper();
             var sink = new LogzioSink(
                 client,
-                requestUri,
+                authToken,
                 batchPostingLimit ?? LogzioSink.DefaultBatchPostingLimit,
                 period ?? LogzioSink.DefaultPeriod,
                 formatProvider);

@@ -1,18 +1,16 @@
 ﻿using System.Net.Http;
 using Moq;
-using Serilog.Sinks.Http.Tests.Support;
-using Serilog.Sinks.Logzio;
 using Xunit;
 
 namespace Serilog.Sinks.Http.Tests.Sinks.Http
 {
-    public class HttpSinkTest
+    public class HttpLogzioTest
     {
         private readonly Mock<IHttpClient> client;
         private readonly string requestUri;
-        private readonly HttpSink sink;
+        private readonly LogzioSink sink;
 
-        public HttpSinkTest()
+        public HttpLogzioTest()
         {
             client = new Mock<IHttpClient>();
             requestUri = "www.mylogs.com";
