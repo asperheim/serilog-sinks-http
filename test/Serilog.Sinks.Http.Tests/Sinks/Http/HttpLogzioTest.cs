@@ -33,7 +33,7 @@ namespace Serilog.Sinks.Http.Tests.Sinks.Http
             // Assert
             client.Verify(
                 mock => mock.PostAsync(
-                    "http://www.logz.io?token=" + autkey,
+                    "http://listener.logz.io:8070/?token=" + autkey,
                     It.IsAny<HttpContent>()),
                 Times.Once);
         }
