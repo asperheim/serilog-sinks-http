@@ -1,5 +1,5 @@
 # Serilog.Sinks.Logzio
-
+[![Build status](https://ci.appveyor.com/api/projects/status/083a7a9q9eb9l7sr?svg=true)](https://ci.appveyor.com/project/AndersAsperheim/serilog-sinks-logzio) [![NuGet Version](http://img.shields.io/nuget/v/Serilog.Sinks.Logzio.svg?style=flat)](https://www.nuget.org/packages/Serilog.Sinks.Logzio/)
 
 A [Serilog](http://serilog.net/) sink that sends HTTP POST requests over the network.
 
