@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Serilog.Sinks.Logzio.Sample
 {
     public class Program
@@ -8,7 +10,7 @@ namespace Serilog.Sinks.Logzio.Sample
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
                 .WriteTo.LiterateConsole()
-                .WriteTo.Logzio("<YourKey>", 1)
+                .WriteTo.Logzio("<you key>", 1)
                 .CreateLogger();
 
             while (true)
